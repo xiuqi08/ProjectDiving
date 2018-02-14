@@ -1,0 +1,19 @@
+<html>
+  <body>
+     <h1>
+         Welcome to Mactan's wonderworld!
+     </h1>
+      <p>
+          <label>Choose sports: </label>
+          <select name="sports" method="POST" action="/">
+          {% for each in dropdown_list %}
+              <option value="{{sport}}">{{sport}}</option>
+          {% endfor %}
+          </select>
+      </p>
+      <p>
+         <span>You should pay {{ sport }} pesso</span>
+      </p>
+
+  </body>
+</html>
