@@ -1,15 +1,18 @@
 import flask
 
 from flask import render_template
+from flask import request
 
 app = flask.Flask(__name__)
 
-@app.route('/', methods = ['GET'])
-def index():
-    dropdown_list = ["Snorkelling","Diving"]
-    if request.method == 'POST':
-        sport = request.form['sports']
-    return render_template('index.html',dropdown_list=dropdown_list,sport = sport)
+@app.route('/')
+def index(sport=0):
+    return render_template('index.html',selection = ["Snorkelling","Diving"], sport = sport)
+
+@app.route('/price', methods = ['GET','POST'])
+def price(sport=0):
+    sport = request.form['sports']
+    return render_template('index.html',selection = ["Snorkelling","Diving"], sport = sport)
 
 class PrizeCalculating():
     #Initialize as 0, 
